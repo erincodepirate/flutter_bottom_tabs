@@ -106,18 +106,38 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      bottomNavigationBar:
-          BottomNavigationBar(items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.call),
-          label: 'Calls',
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.call),
+            label: 'Calls',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.camera),
+            label: 'Camera',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chats')
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        backgroundColor: Colors.white10,
+        elevation: 0,
+        iconSize: 40,
+        mouseCursor: SystemMouseCursors.grab,
+        // set selected icon to yellow color and bigger font
+        selectedFontSize: 20,
+        selectedIconTheme: const IconThemeData(color: Colors.amberAccent, size: 40),
+        selectedItemColor: Colors.amberAccent,
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+        // set orange color for unselected icon
+        unselectedIconTheme: const IconThemeData(
+          color: Colors.deepOrangeAccent,
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.camera),
-          label: 'Camera',
-        ),
-        BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chats')
-      ], currentIndex: _selectedIndex, onTap: _onItemTapped),
+        unselectedItemColor: Colors.deepOrangeAccent,
+        // hide text labels
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+      ),
       body: Center(
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
